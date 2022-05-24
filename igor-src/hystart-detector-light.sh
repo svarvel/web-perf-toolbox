@@ -23,9 +23,6 @@ function ctrl_c() {
 	then
 		killall ping 
 	fi 
-	sudo kill -9 $pid_tcpdump 
-	sudo killall tcpdump	
-	killall lighthouse	
 	echo "true"  > ".dummynet"
     sleep 1 
     echo "false"  > ".to_throttle"
@@ -107,7 +104,6 @@ fi
 
 # parameters 
 id=`date +%s`                    # unique identifier for this test
-iface="en0"                      # client network interface for pcap collection
 router_throttling="false"        # flag to control local or router throttling 
 MTU=500                          # default MTU
 IW=10                            # initial congestion window size 
